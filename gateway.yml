@@ -13,6 +13,15 @@ spring:
             - AddRequestHeader=user-request-header, custom-user-request-header
             - AddResponseHeader=user-response-header, custom-user-response-header
             - LogFilter=Hola este es el mensaje, usuario, Rodrigo
+        - id: specie-service
+          uri: lb://specie-service
+          #uri: http://localhost:8065
+          predicates:
+            - Path=/specie-service/**
+          filters:
+            - AddRequestHeader=user-request-header, custom-user-request-header
+            - AddResponseHeader=user-response-header, custom-user-response-header
+            - LogFilter=Hola este es el mensaje, usuario, Rodrigo
       discovery:
         locator:
           enabled: true
